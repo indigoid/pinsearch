@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pinsearch (0.1.1)
+    pinsearch (0.1.2)
       pinterest-api (>= 0.2)
       puma (>= 3)
       puma-heroku (>= 1)
