@@ -1,1 +1,1 @@
-web: exe/pinsearch
+web: bundle exec exe/pinsearch
