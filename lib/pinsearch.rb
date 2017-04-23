@@ -25,10 +25,18 @@ module Pinsearch
 		get '/search' do
 			@query = params['query']
 			if @query
-				@client = Pinterest::Client.new(ENV['PINTEREST_API_TOKEN'])
-				@results = @client.get_pins(query: @query)
-				expires @results.data.size > 0 ? 300 : 60, :public
-				erb :searchresults
+        begin
+          client = Pinterest::Client.new(ENV['PINTEREST_API_TOKEN'])
+          unsorted_results = client.get_pins(query: @query, limit:100, fields: 'id,created_at')
+          @results = unsorted_results.data
+          @results.sort_by! { |pin| pin.created_at }
+          @results.reverse!
+          expires @results.size > 0 ? 300 : 60, :public
+          erb :searchresults
+        rescue Exception => e
+          puts "#{e.class}: #{e.message}"
+          return "Having trouble getting data from Pinterest..."
+        end
 			else
 				expires 15, :public
 				erb :invalidquery

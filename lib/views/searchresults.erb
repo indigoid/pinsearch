@@ -6,8 +6,8 @@
 <body>
 <h1><%= @title %></h1>
 <hr/>
-<% if @results.data.size > 0 %>
-  <% @results.data.each do |r| %>
+<% if @results.size > 0 %>
+  <% @results.each do |r| %>
     <a data-pin-do="embedPin" href="https://www.pinterest.com/pin/<%= r.id %>/"></a>
   <% end %>
 <% else %>
