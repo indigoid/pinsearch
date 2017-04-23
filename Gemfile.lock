@@ -2,8 +2,9 @@ PATH
   remote: .
   specs:
     pinsearch (0.1.1)
-      pinterest-api (~> 0)
-      sinatra (~> 1.4)
+      pinterest-api (>= 0.2)
+      puma (>= 3)
+      sinatra (>= 1.4)
 
 GEM
   remote: https://rubygems.org/
@@ -35,6 +36,7 @@ GEM
       hashie (~> 3.0)
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.0)
+    puma (3.8.2)
     rack (1.6.5)
     rack-protection (1.5.3)
       rack
