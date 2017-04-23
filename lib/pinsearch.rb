@@ -12,6 +12,10 @@ module Pinsearch
 			set :public_folder, File.dirname(__FILE__) + '/../static'
 		end
 
+		use Rack::Auth::Basic, "Pinsearch" do |username, password|
+			username == ENV['PINSEARCH_AUTH_USER'] and password == ENV['PINSEARCH_AUTH_PASSWORD']
+		end
+
 		get '/' do
 			redirect '/index.html', 301
 		end
