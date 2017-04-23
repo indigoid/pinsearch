@@ -11,9 +11,6 @@ module Pinsearch
 			set :static_cache_control, [:public, :max_age => 900]
 			set :public_folder, File.dirname(__FILE__) + '/../static'
 		end
-		get '/version' do
-			VERSION
-		end
 
 		get '/' do
 			redirect '/index.html', 301

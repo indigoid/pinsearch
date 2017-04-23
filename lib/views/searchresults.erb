@@ -1,0 +1,17 @@
+<% @title = "pinsearch: #{@query}" %>
+<html>
+<head>
+<title><%= @title %></title>
+</head>
+<body>
+<h1><%= @title %></h1>
+<hr/>
+<% if @results.data.size > 0 %>
+  <% @results.data.each do |r| %>
+    <a data-pin-do="embedPin" href="https://www.pinterest.com/pin/<%= r.id %>/"></a>
+  <% end %>
+<% else %>
+  No results found. <a href="/index.html">Try another search?</a>
+<% end %>
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+</body>
