@@ -4,6 +4,7 @@ PATH
     pinsearch (0.1.1)
       pinterest-api (>= 0.2)
       puma (>= 3)
+      puma-heroku (>= 1)
       sinatra (>= 1.4)
 
 GEM
@@ -37,6 +38,8 @@ GEM
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.0)
     puma (3.8.2)
+    puma-heroku (1.0.0)
+      puma (~> 3.0)
     rack (1.6.5)
     rack-protection (1.5.3)
       rack
