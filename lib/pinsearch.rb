@@ -10,6 +10,8 @@ module Pinsearch
 			set :static, true
 			set :static_cache_control, [:public, :max_age => 900]
 			set :public_folder, File.dirname(__FILE__) + '/../static'
+      set :server, :puma
+      set :port, ENV['port'] || 3000
 		end
 
 		use Rack::Auth::Basic, "Pinsearch" do |username, password|
